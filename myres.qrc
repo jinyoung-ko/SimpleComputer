@@ -1,0 +1,19 @@
+<RCC>
+    <qresource prefix="/Images">
+        <file>helpIcon.png</file>
+        <file>loadFile.png</file>
+        <file>saveFile.png</file>
+        <file>koj.png</file>
+        <file>kojin.ico</file>
+        <file>Background.png</file>
+        <file>BackgroundHelp.png</file>
+        <file>EmulatorIcon.icns</file>
+    </qresource>
+    <qresource prefix="/ProgramFiles">
+        <file>Absolute.txt</file>
+        <file>BootStrap.txt</file>
+        <file>Division.txt</file>
+        <file>MaxNumber.txt</file>
+        <file>Shifting.txt</file>
+    </qresource>
+</RCC>

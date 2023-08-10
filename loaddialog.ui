@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>LoadDialog</class>
+ <widget class="QDialog" name="LoadDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>412</width>
+    <height>312</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QDialog {
+color: #7DFDFE; 
+background-image: url(:/Images/BackgroundHelp.png);
+border: 2px solid #05565F;
+}
+
+QGroupBox{
+color: #7DFDFE; 
+background: transparent;
+border: 2px solid #05565F;
+}
+
+QRadioButton {
+ color: #40E0D0 ;
+}
+
+QRadioButton:hover {
+ color: #FF8533 ;
+}
+
+QLabel { 
+background-color : transparent; 
+color : #7DAFAF; 
+}
+
+QLineEdit{
+background-color: #4D5464;
+border: 1px solid #2B406B;
+color: #FFFFFF;
+}
+
+QPushButton{
+background-color: #222222;
+color: #7DFDFE; 
+border: 1px solid #7DFDFE;
+}
+
+QPushButton:hover { 
+color: #E12E93;
+border: 1px solid #2790C4;
+}
+</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_8">
+   <item>
+    <widget class="QGroupBox" name="PreExistingFileGroupBox">
+     <property name="title">
+      <string>Files Included:</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_7">
+      <item>
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>60</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_6">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_5">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_4">
+            <item>
+             <widget class="QRadioButton" name="divBtn">
+              <property name="text">
+               <string>Division</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="bsBtn">
+              <property name="text">
+               <string>BootStrap</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="absBtn">
+              <property name="text">
+               <string>Absolute</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <item>
+             <widget class="QRadioButton" name="maxNumBtn">
+              <property name="text">
+               <string>MaxNumber</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="shfBtn">
+              <property name="text">
+               <string>Shifting</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_2">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <item>
+           <widget class="QLabel" name="OrLbl">
+            <property name="text">
+             <string>OR</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_3">
+            <item>
+             <widget class="Line" name="horizontalLine">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_2">
+              <item>
+               <widget class="QRadioButton" name="ownFileBtn">
+                <property name="text">
+                 <string>Use My Own File</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout">
+                <item>
+                 <widget class="QLabel" name="FileNameLbl">
+                  <property name="text">
+                   <string>File Name:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_2">
+                  <item>
+                   <widget class="QLineEdit" name="fileNameLineEdit"/>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="chooseFileBtn">
+                    <property name="text">
+                     <string>Choose File</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="cancelBtn">
+       <property name="text">
+        <string>Cancel</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="okBtn">
+       <property name="text">
+        <string>Ok</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
