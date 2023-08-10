@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>HelpDialog</class>
+ <widget class="QDialog" name="HelpDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Simple Computer - Help</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QDialog {
+color: #7DFDFE; 
+background-image: url(:/Images/BackgroundHelp.png);
+border: 2px solid #05565F;
+}
+
+QPlainTextEdit {
+background: transparent;
+border: 1px solid #42DCEE;
+color: #42DCEE;
+}
+
+QPushButton{
+background-color: #222222;
+color: #7DFDFE; 
+border: 1px solid #7DFDFE;
+}
+
+QPushButton:hover { 
+color: #7DAFAF;
+border: 1px solid #FF8533;
+}
+</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QPlainTextEdit" name="plainTextEdit">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="sizeAdjustPolicy">
+      <enum>QAbstractScrollArea::AdjustIgnored</enum>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+     <property name="plainText">
+      <string>Simple Computer Help
+
+What is the Simple Computer Emulator?
+	Good question! As you probably already deduced it emulates a computer... Let's go into more detail. It is a three digit virtual machine (it 	
+	does all its calculation in decimal rather than binary).  A simplified computer to help one prepare herself/himself for Assembly.
+	
+	Contains:
+	Memory: 100 cells ranging from 00 to 99 (3 digits) 
+	Input Cards: 15 cells ranging from 01 to 15 (3 digits)
+	Output Cards: 15 cells ranging from 01 to 15 (3 digits)
+	Program Counter (PC): Keeps track of what line the program is exciting (2 digits)
+	Accumulator: 1 digit that shows if there is a carry over (1 = carry over; 0 = no carry)
+		  and 3 digits to show the number in the accumulator
+
+Instructions:
+
+The first digit of the three digit numbers represent which operation code (op code) should be executed:
+	
+0 : Input (Gets input from input cards and store it into memory)
+	i.e. 018 	-- Gets input from input card and then store that number into memory cell 18
+
+1:  Output (Outputs the number from memory into an output card)
+	i.e. 125 	-- Gets number from memory cell 25 and outputs to an output card
+
+2: Add (Adds the number to accumulator)
+	i.e. 248	-- Let's say that the accumulator already has the number 100 stored.
+		    Let's also assume that cell memory 48 has the number 050.
+		    Thus 100 + 050 = 150. 150 will then be stored in the accumulator
+
+3. Subtract (Subtract number from accumulator)
+	i.e. 354 	-- Let's say that the accumulator already has the number 050 stored.
+		    Let's also assume that cell memory 54 has the number 025.
+		    Thus 050 - 025 = 025. 025 will then be stored in the accumulator
+
+4. Load Accumulator (Loads number from memory cell into accumulator)
+	i.e. 412	-- Let's assume that memory cell 12 contains the number 567.
+		    Then the accumulator will store the number 567. The carry bit will be 0 because it
+		    is a valid number. If the number was greater than 999 or less than -999 it will 
+		    contain a carry bit of 1.
+
+5. Store Accumulator (Stores number in accumulator to memory cell)
+	i.e 587	-- Let's assume the accumulator contains the number 123.
+		    Then memory cell at 87 will contain the number 123.
+
+6. Jump (Jump moves from one memory cell to another -- does not have to execute line by line)
+	i.e. 684	-- Let's say you are currently memory cell 12 and it has the number 684
+		    Then when it executes the program counter will be 84.
+		    The program counter will jump from memory cell 12 to memory cell 84 and
+		    execute the code at memory cell 84.
+		    ALSO, the address (memory cell 12) will be stored into memory cell 99.
+		    This allows one to create a subroutine.
+
+7. Test Accumulator (Checks if the number in the accumulator is less than zero)
+	i.e. 742	-- Let's say the number in the accumulator is -023 and the PC is at 15.
+		    Since -023 is less than zero it will jump to memory cell 42.
+		    The program counter will be updated to 42.
+			    
+		-- Let's say that the number in the accumulator is 023 and the PC is at 15.
+		    Since 023 is not less than zero it will continue on to the next line so it
+		    will execute the next memory cell at 16.
+
+8. Shift Accumulator (Shift Left then Shift Right)
+	i.e. 8xy	-- x shifts left; y shifts right
+	      810	-- Say the number in the accumulator is 0 123 (0 is the carry bit)
+		    The result is then: 1 230
+	      801	-- Say the number in the accumulator is 0 123 (0 is the carry bit)
+		    The result is then: 0 012
+
+9. Halt (This halts the program)
+	i.e. 900	-- The program is over and the two digits will be stored in the program counter.
+		    So the program counter is now 00.
+
+Run: Runs the whole program
+
+Step: Shows the program being run one step at a time. (Tip: Useful for debugging!)
+
+Keyboard Input: Allowed for Memory, Input Cards, and Program Counter.
+	Program Counter: 00 to 20
+	Input Cards and Memory: -999 to 999
+
+Clear Content: 
+	Clear All	   : Clears everything 
+	Clear Memory : Clear all memory 
+	Clear Input      : Clears all input 
+	Clear Output   : Clears all output 
+	Clear CPU	   : Clears program counter (pc), accumulator, and instruction register
+ 
+Load Program File:
+	Press Load Button:
+	Load Program File that is already written.
+		1. Division
+		2. MaxNumber
+		3. Bootstrap
+		4. Absolute
+		5. Shifting
+	OR
+	Load Program from your own .txt file. Note file must be formatted properly in order for contents to be read properly.
+		Note: To see format &quot;Save&quot; a preloaded file and edit from there.
+Save Program File:
+	Press Save Button:
+	Choose location to save file and choose filename. It will save automagically as a .txt file.
+	You can use the saved program by loading it and pressing the run button!</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="okBtn">
+       <property name="text">
+        <string>Ok</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
